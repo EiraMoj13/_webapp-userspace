@@ -7,7 +7,7 @@
             <div class="form-left-inner">
                 <h3>Sign Up</h3>
                 <figure class="image">
-                    <img src="{{ url_for('static', filename='form-icon.png') }}">
+                    <img src="{{ url_for('static', filename='signup-icon.png') }}">
                 </figure>
                 <!-- <h4>UserSpace WebApp</h4>
                 <h5>by Lovelyn M. Dasco</h5> -->
@@ -26,23 +26,23 @@
                 <form method="POST" action="/signup">
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                            <input class="input" type="text" name="name" placeholder="Name" autofocus="">
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" name="email" placeholder="Email" autofocus="">
                         </div>
                     </div>
         
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                            <input class="input" type="password" name="password" placeholder="Password">
                         </div>
                     </div>
         
-                    <div class="field">
-                        <div class="control">
-                            <input class="input is-large" type="password" name="password" placeholder="Password">
-                        </div>
-                    </div>
-        
-                    <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+                    <button class="button is-block is-info is-fullwidth sign-up">Sign Up</button>
                 </form>
             </div>
         </div>

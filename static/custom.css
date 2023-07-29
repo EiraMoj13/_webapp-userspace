@@ -65,6 +65,7 @@ a.navbar-item {
   border-radius: 50%;
   padding: 20px 20px;
   overflow: initial;
+  box-shadow: 3px 3px 5px 2px #b1aeae;
 }
 .navbar-start .navbar-item {
   padding: 0px;
@@ -76,7 +77,15 @@ a.navbar-item {
   border-radius: 50%;
   background-color: #f9ccff;
   transform: scale(1.1);
+  box-shadow: none;
 }
+a.navbar-item:hover {
+  background-color: #f9ccff;
+  color: #363636;
+  box-shadow: 3px 3px 5px 2px #b1aeae;
+  transition: 0.3s;
+}
+
 
 h1.title {
   letter-spacing: 1px;
@@ -134,7 +143,7 @@ h4 {
 }
 .form-right .box {
   box-shadow: none;
-  padding: 4rem 1rem 0rem 1rem;
+  padding: 3rem 1rem 0rem 1rem;
 }
 .form-right label.checkbox {
   display: block;
@@ -156,9 +165,50 @@ h4 {
 button {
   background-color: #4a4a4a !important;
 }
+.form-right {
+  padding: 15px 20px;
+}
 .form-right label.checkbox input {
   height: 11px;
 }
 .form-right input:focus{
   border-color: #4a4a4a80;
+}
+.form-right .notification.is-danger {
+  background-color: transparent;
+  color: red;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  bottom: 32px;
+  height: 0px;
+  font-size: 14px;
+}
+button{
+  text-transform: uppercase;
+  font-weight: 500;
+  height: auto !important;
+  padding: 12px !important;
+}
+button:hover {
+  box-shadow: -1px 0px 6px 2px #898989;
+}
+.sign-up {
+  margin-top: 2rem;
+}
+
+
+
+
+/* TABLE LAYOUT */
+.table-fullwidth {
+  width: 100%;
+}
+thead th {
+  text-align: center !important;
+  padding: 15px 10px !important;
+  border: 1px solid #dddddd !important;
+}
+td {
+  padding: 20px 10px !important;
 }

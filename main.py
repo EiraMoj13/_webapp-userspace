@@ -18,6 +18,11 @@ def index():
 def profile():
     return render_template('profile.html', user=current_user)
 
+@main.route('/manage-users') # manage user page that return 'manage-user'
+@login_required
+def manage_user():
+    return render_template('manage-users.html', user=current_user)
+
 
 app = create_app() # initialize our flask app using the __init__.py function
 

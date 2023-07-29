@@ -27,6 +27,12 @@ def delete_user(user_id):
         return jsonify({'message': 'User deleted successfully'}), 200
     else:
         return jsonify({'message': 'User not found'}), 404
+    
+@main.route('/manage-users') # manage user page that return 'manage-user'
+@login_required
+def manage_user():
+    return render_template('manage-users.html', user=current_user)
+
 
 app = create_app() # initialize our flask app using the __init__.py function
 

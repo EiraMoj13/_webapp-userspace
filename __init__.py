@@ -13,7 +13,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'secret-key-goes-here'  # used by Flask and extensions to keep data safe
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'  # the path where the SQLite database file will be saved
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # deactivate Flask-SQLAlchemy track modifications
-
+    app.config['DEBUG'] = True
     # Initialiaze sqlite database
     db.init_app(app)
 

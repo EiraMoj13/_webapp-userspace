@@ -1,5 +1,5 @@
-
-from flask import Blueprint, render_template, flash,jsonify
+import json
+from flask import Blueprint, render_template, flash,jsonify,json, Response,abort
 from flask_login import login_required, current_user
 from __init__ import create_app, db
 from models import User
@@ -19,6 +19,7 @@ def profile():
     return render_template('profile.html', user=current_user)
 
 @main.route('/user/delete/<int:user_id>', methods=['GET','DELETE']) #delete user
+@login_required
 def delete_user(user_id):
     user = User.query.get(user_id)
     if user:
@@ -31,7 +32,10 @@ def delete_user(user_id):
 @main.route('/manage-users') # manage user page that return 'manage-user'
 @login_required
 def manage_user():
-    return render_template('manage-users.html', user=current_user)
+    if current_user.role == "admin":
+        return render_template('manage-users.html',current_user=current_user)
+    else:
+        abort(404, 'Page not found')
 
 
 app = create_app() # initialize our flask app using the __init__.py function

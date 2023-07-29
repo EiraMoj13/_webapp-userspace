@@ -28,6 +28,13 @@
                       </div>
                     <div class="navbar-end">
                         {% if current_user.is_authenticated %}
+                            {% if current_user.role == "admin" %}
+                            <a href="{{ url_for('main.manage_user') }}" class="navbar-item">
+                                Manage User
+                            </a>
+                            {% endif %}
+                        {% endif %}
+                        {% if current_user.is_authenticated %}
                         <a href="{{ url_for('main.profile') }}" class="navbar-item">
                             Profile
                         </a>

@@ -16,7 +16,7 @@ def index():
 @main.route('/profile') # profile page that return 'profile'
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    return render_template('profile.html', user=current_user)
 
 
 app = create_app() # initialize our flask app using the __init__.py function

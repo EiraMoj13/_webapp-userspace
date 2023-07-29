@@ -229,11 +229,11 @@ td {
   vertical-align:middle !important;
 }
 .table-striped>tbody>tr:nth-of-type(even)>* {
-  background-color:#afafaf52;
+  background-color:#afafaf29;
 }
 .table-wrapper {
   background-color: #fff;
-  padding: 20px 20px;
+  padding: 25px 20px 25px 20px;
 }
 .table-wrapper h2 {
   font-weight: 400;
@@ -257,4 +257,51 @@ td {
   font-size: 15px;
   height: auto;
 }
+.action-btn-wrapper button:hover {
+  box-shadow: 0px 0px 3px 1px #a1a1a1;
+}
 
+/* MODAL */
+.modal-background {
+  background-color: rgb(139 138 138 / 68%)!important;
+}
+.modal-content {
+  width: 550px !important;
+}
+.modal-content .box {
+  padding: 2rem 2rem;
+}
+.action-btn-wrapper .modal-btn {
+  background-color: #4a4a4a;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  height: auto;
+  margin-top: 2rem;
+}
+.action-btn-wrapper .modal-btn:hover {
+  background-color: #4a4a4a;
+  box-shadow: rgb(137, 137, 137) -1px 0px 6px 2px;
+}
+.modal-content .modal-header button.modal-close {
+  position: absolute;
+  padding: 0px;
+  margin-top: -14px;
+  right: 6px;
+}
+.modal-content .modal-header .modal-close::before, .modal-content .modal-header .modal-close::after  {
+  background-color: #4a4a4a;
+}
+.modal-content h3 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 25px;
+  text-align: left;
+  margin-bottom: 20px;
+  
+}
+.modal-content .box .field {
+  margin-bottom: 1rem;
+}

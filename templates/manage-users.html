@@ -18,7 +18,40 @@
                         <td>
                             <div class="action-btns">
                                 <div class="action-btn-wrapper">
-                                    <button class="button is-warning addBtn">Edit</button>
+                                    <button class="button is-warning addBtn js-modal-trigger" data-target="modal-js-example">Edit</button>
+                                    <div id="modal-js-example" class="modal">
+                                        <div class="modal-background"></div>
+                                      
+                                        <div class="modal-content">
+                                            <div class="box">
+                                                <div class="modal-header">
+                                                    <h3>Edit
+                                                        <span class="icon">
+                                                            <i class="fas fa-pen fa-xs"></i>
+                                                        </span>
+                                                    </h3>
+                                                    <button class="modal-close is-large" aria-label="close"></button>
+                                                </div>
+                                                
+                                                <form method="POST" action="/signup">
+                                                    <div class="field">
+                                                        <div class="control">
+                                                            <input class="input" type="text" name="name" placeholder="Name" autofocus="">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="field">
+                                                        <div class="control">
+                                                            <input class="input" type="email" name="email" placeholder="Email" autofocus="">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <button class="button is-block is-info is-fullwidth modal-btn">Save</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                      
+                                      </div>
                                 </div>
                                 <div class="action-btn-wrapper">
                                     <button class="button is-danger deleteBtn">Delete</button>

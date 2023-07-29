@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<figure class="image is-128x128">
+    <img src="{{ url_for('static', filename='confetti.png') }}">
+</figure>
 <h1 class="title">
     Welcome, {{user.name}}!
 </h1>

@@ -162,7 +162,7 @@ h4 {
   display: block;
   color: #363636;
 }
-button {
+.form-right button {
   background-color: #4a4a4a !important;
 }
 .form-right {
@@ -184,13 +184,13 @@ button {
   height: 0px;
   font-size: 14px;
 }
-button{
+.form-right button{
   text-transform: uppercase;
   font-weight: 500;
   height: auto !important;
   padding: 12px !important;
 }
-button:hover {
+.form-right button:hover {
   box-shadow: -1px 0px 6px 2px #898989;
 }
 .sign-up {
@@ -204,11 +204,57 @@ button:hover {
 .table-fullwidth {
   width: 100%;
 }
+.table-wrapper {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 18px 16px 8px 4px #b1aeae73;
+}
 thead th {
   text-align: center !important;
-  padding: 15px 10px !important;
+  padding: 20px 10px !important;
   border: 1px solid #dddddd !important;
+  background-color: #363636;
+  color: #fff !important;
+  font-weight: 400;
+}
+thead{
+  border:1px solid #dddddd !important;
 }
 td {
-  padding: 20px 10px !important;
+  padding: 8px 10px !important;
+  width:33.3%;
+  border:1px solid #dddddd !important;
+  font-size: 15px;
+  vertical-align:middle !important;
 }
+.table-striped>tbody>tr:nth-of-type(even)>* {
+  background-color:#afafaf52;
+}
+.table-wrapper {
+  background-color: #fff;
+  padding: 20px 20px;
+}
+.table-wrapper h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0px;
+  font-size: 25px;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.action-btns {
+  display: flex;
+  justify-content: center;
+}
+.action-btn-wrapper {
+  margin: 0px 10px;
+}
+.action-btn-wrapper button {
+  width: 120px;
+  padding: 5px 30px;
+  font-size: 15px;
+  height: auto;
+}
+

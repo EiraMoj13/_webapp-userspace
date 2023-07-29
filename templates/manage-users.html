@@ -2,30 +2,75 @@
 
 {% block content %}
 <div class="columns is-centered">
-    <div class="column is-8">
-        <table class="table table-fullwidth">
-            <thead>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>
-                        <div class="action-btns">
-                            <div class="action-btn-wrapper">
-                                <button type="button" class="addBtn">Add</button>
+    <div class="column is-10">
+        <div class="table-wrapper">
+            <h2>Manage Users</h2>
+            <table class="table table-fullwidth table-striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>
+                            <div class="action-btns">
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-warning addBtn">Edit</button>
+                                </div>
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-danger deleteBtn">Delete</button>
+                                </div>
                             </div>
-                            <div class="action-btn-wrapper">
-                                <button type="button" class="deleteBtn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>John2</td>
+                        <td>Doe</td>
+                        <td>
+                            <div class="action-btns">
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-warning addBtn">Edit</button>
+                                </div>
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-danger deleteBtn">Delete</button>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>John2</td>
+                        <td>Doe</td>
+                        <td>
+                            <div class="action-btns">
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-warning addBtn">Edit</button>
+                                </div>
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-danger deleteBtn">Delete</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>John2</td>
+                        <td>Doe</td>
+                        <td>
+                            <div class="action-btns">
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-warning addBtn">Edit</button>
+                                </div>
+                                <div class="action-btn-wrapper">
+                                    <button class="button is-danger deleteBtn">Delete</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}

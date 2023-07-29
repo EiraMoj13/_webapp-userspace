@@ -55,6 +55,7 @@ def signup(): # define the sign up function
         db.session.commit()
 
         return redirect(url_for('auth.login'))
+    
 
 
 @auth.route('/logout') # define logout path

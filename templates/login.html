@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column">
+    <div class="columns main-wrapper">
+        <div class="column form-left">
+            <div class="form-left-inner">
+                <h3>Login</h3>
+                <figure class="image">
+                    <img src="{{ url_for('static', filename='form-icon.png') }}">
+                </figure>
+                <!-- <h4>UserSpace WebApp</h4>
+                <h5>by Lovelyn M. Dasco</h5> -->
+            </div>
+        </div>
+        <div class="column form-right">
+            <div class="box">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form method="POST" action="/login">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-normal" type="email" name="email" placeholder="Your Email" autofocus="">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-normal" type="password" name="password" placeholder="Your Password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            Remember me
+                        </label>
+                    </div>
+                    <button class="button is-block is-info is-normal is-fullwidth">Login</button>
+                </form>
+                <a href="{{ url_for('auth.signup') }}" class="no-acc">Don't have an Account?</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

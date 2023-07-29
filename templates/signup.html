@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column">
+    <div class="columns main-wrapper">
+        <div class="column form-left">
+            <div class="form-left-inner">
+                <h3>Sign Up</h3>
+                <figure class="image">
+                    <img src="{{ url_for('static', filename='form-icon.png') }}">
+                </figure>
+                <!-- <h4>UserSpace WebApp</h4>
+                <h5>by Lovelyn M. Dasco</h5> -->
+            </div>
+        </div>
+        <div class="column form-right">
+            <div class="box">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}<br> Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+                        </div>
+                    {% endif %}
+                {% endwith %}
+        
+                <form method="POST" action="/signup">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                        </div>
+                    </div>
+        
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                        </div>
+                    </div>
+        
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-large" type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+        
+                    <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

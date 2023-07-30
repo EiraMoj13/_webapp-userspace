@@ -179,10 +179,11 @@ h4 {
   color: red;
   padding: 0px;
   margin: 0px;
-  position: relative;
-  bottom: 32px;
+  position: absolute;
+  top: -4rem;
   height: 0px;
   font-size: 14px;
+  right: 15rem;
 }
 .form-right button{
   text-transform: uppercase;
@@ -208,7 +209,7 @@ h4 {
   background-color: #fff;
   padding: 30px 20px;
   border-radius: 10px;
-  box-shadow: 18px 16px 8px 4px #b1aeae73;
+  /* box-shadow: 18px 16px 8px 4px #b1aeae73; */
 }
 thead th {
   text-align: center !important;
@@ -222,17 +223,17 @@ thead{
   border:1px solid #dddddd !important;
 }
 td {
-  padding: 8px 10px !important;
-  width:33.3%;
-  border:1px solid #dddddd !important;
-  font-size: 15px;
+  padding: 10px 10px !important;
+  width: 33.3%;
+  border: 1px solid #dddddd !important;
+  font-size: 14px;
   vertical-align:middle !important;
 }
 .table-striped>tbody>tr:nth-of-type(even)>* {
   background-color:#afafaf29;
 }
 .table-wrapper {
-  background-color: #fff;
+  background-color: #f9ccff;
   padding: 25px 20px 25px 20px;
 }
 .table-wrapper h2 {
@@ -243,6 +244,54 @@ td {
   font-size: 25px;
   text-align: left;
   margin-bottom: 1rem;
+}
+.table-header {
+  display: flex;
+}
+.table-header div {
+  width: 50%;
+}
+.table-add-user {
+  text-align: right;
+}
+.table-add-user button span {
+  padding-right: 25px;
+}
+.table-add-user button {
+  height: auto;
+  padding: 9px 23px 9px 35px;
+  font-weight: 400;
+  background-color: #f9ccff;
+  border: 1px solid #ffffff;
+  text-transform: uppercase;
+}
+.table-add-user button:hover {
+  border-color: #fff;
+  box-shadow: 3px 3px 5px 2px #b1aeae;
+  transition: 0.3s;
+}
+.table-search {
+  margin: 2rem 0rem 2rem 0rem;
+}
+.table-search .control input {
+  width: 350px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 10px 20px;
+  height: auto;
+}
+.table-search .control a {
+  height: auto;
+  padding: 10px 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #363636;
+}
+.table-search .control a:hover {
+  background-color: #363636;
+}
+.table-search .field {
+  justify-content: center;
 }
 .action-btns {
   display: flex;

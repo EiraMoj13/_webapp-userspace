@@ -7,9 +7,9 @@
                     <h2>Manage Users</h2>
                 </div>
                 <div class="table-add-user">
-                    <button class="button">
+                    <button class="button" onclick="document.querySelector('#modal-add').classList.add('is-active')">
                         <span class="icon is-small">
-                          <i class="fas fa-plus"></i>
+                            <i class="fas fa-plus"></i>
                         </span>
                         Add User
                     </button>
@@ -18,16 +18,25 @@
             <div class="table-search">
                 <div class="field has-addons">
                     <div class="control">
-                        <input class="input" type="text" placeholder="Search">
+                        <input class="input" id="search" type="text" placeholder="Search" value="{{search}}">
                     </div>
                     <div class="control">
-                        <a class="button is-info">
+                        <a class="button is-info"
+                            onclick="window.location.search = '?search='+document.querySelector('#search').value">
                             Search
                         </a>
                     </div>
                 </div>
             </div>
-            
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="notification is-{{category}}">
+                {{ message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
             <table class="table table-fullwidth table-striped">
                 <thead>
                     <th>Name</th>
@@ -36,6 +45,7 @@
                     <th>Actions</th>
                 </thead>
                 <tbody>
+                    {% if users %}
                     {% for user in users %}
                     <tr>
                         <td>{{ user.name }}</td>
@@ -58,6 +68,11 @@
                         </td>
                     </tr>
                     {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="4">No record found.</td>
+                    </tr>
+                    {% endif %}
 
                 </tbody>
             </table>
@@ -65,8 +80,8 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div id="modal-js-example" class="modal">
+<!-- Edit Modal -->
+<div id="modal-edit" class="modal">
     <div class="modal-background"></div>
 
     <div class="modal-content">
@@ -110,6 +125,56 @@
         </div>
     </div>
 </div>
+<!-- Add Modal -->
+<div id="modal-add" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+        <div class="box">
+            <div class="modal-header">
+                <h3>
+                    Add
+                    <span class="icon">
+                        <i class="fas fa-pen fa-xs"></i>
+                    </span>
+                </h3>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+            <form id="update_form" method="POST" action="add-user">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" name="name" placeholder="Name" autofocus="" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="email" name="email" placeholder="Email" autofocus="" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <select name="role" id="role" autofocus="" class="input" required>
+                            <option value="">-- Role --</option>
+                            <option value="admin">admin</option>
+                            <option value="user">user</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="password" name="password" placeholder="Password" autofocus=""
+                            required />
+                    </div>
+                </div>
+                <button type="submit" class="button is-block is-info is-fullwidth modal-btn">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     function edit(id) {
@@ -131,7 +196,7 @@
                     document.querySelector('input[name="name"]').value = data.name
                     document.querySelector('input[name="email"]').value = data.email
                     document.querySelector('select[name="role"]').value = data.role
-                    document.querySelector('.modal').classList.add('is-active');
+                    document.querySelector('#modal-edit').classList.add('is-active');
                 } else {
                     alert("Record not found!")
                 }

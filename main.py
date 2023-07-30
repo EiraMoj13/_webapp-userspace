@@ -1,6 +1,8 @@
 import json
-from flask import Blueprint, render_template, flash,jsonify, request, json, Response,abort
+from flask import Blueprint, render_template, flash,jsonify, request, json, Response,abort, redirect, url_for
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, current_user
+from sqlalchemy import or_,and_
 from __init__ import create_app, db
 from models import User
 
@@ -60,14 +62,42 @@ def update_record(id):
     db.session.commit()
     return jsonify({'status':200, 'message': 'Record updated successfully'}), 200
    
-@main.route('/manage-users') # manage user page that return 'manage-user'
+@main.route('/manage-users', methods=['GET']) # manage user page that return 'manage-user'
 @login_required
 def manage_user():
     if current_user.role == "admin": 
-        users = User.query.filter(User.id != current_user.id).all()
-        return render_template('manage-users.html',users=users)
+        search = request.args.get('search') if(request.args.get('search')!= None) else ''
+        if search:
+            users = User.query.filter(and_(User.id != current_user.id, (or_(User.name.like(f"%{search}%") , User.email.like(f"%{search}%"), User.role.like(f"%{search}%"))))).all()
+        else:
+            users = User.query.filter(User.id != current_user.id).all()
+
+        return render_template('manage-users.html',users=users,search=search)
     else:
         abort(404, 'Page not found')
+
+
+
+@main.route('/add-user', methods=['GET','POST']) # manage user page that return 'manage-user'
+@login_required
+def add_user():
+    email = request.form.get('email')
+    name = request.form.get('name')
+    password = request.form.get('password')
+    role = request.form.get('role')
+    user = User.query.filter_by(email=email).first()
+
+    if user:  # if a user is found, redirect back to signup page so user can try again
+        flash('Email address already exists','danger')
+        return redirect(url_for('main.manage_user'))
+    else:
+        new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'),role=role)
+
+        # add the new user to the database
+        db.session.add(new_user)
+        db.session.commit()
+        flash('Successfully inserted!','success')
+    return redirect('/manage-users')
 
 
 app = create_app() # initialize our flask app using the __init__.py function
